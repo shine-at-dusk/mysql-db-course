@@ -5,6 +5,10 @@ import ua.lviv.iot.view.MyView;
 public class Application {
 
     public static void main(String[] args) {
-        new MyView().show();
+        try {
+            new MyView().show();
+        } catch (Exception e) {
+            System.out.println("Exception: " + e);
+        }
     }
 }
