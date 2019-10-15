@@ -2,7 +2,11 @@ package ua.lviv.iot.model;
 
 import ua.lviv.iot.controller.connection.ConnectionManager;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Account {
     private static final String FIND_ALL = "SELECT * FROM `account`";

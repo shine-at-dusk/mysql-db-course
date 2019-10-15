@@ -10,17 +10,17 @@ public interface IController {
 
     void findOrderById(Integer id) throws SQLException;
 
-    void createOrder(Integer from_department_id, Integer to_department_id, Integer from_operator_id,
-                     Integer to_operator_id, Integer from_courier_id, Integer to_courier_id,
-                     Integer from_client_id, Integer to_client_id, BigDecimal delivery_price,
-                     BigDecimal product_price, Integer weight, Date sending_date,
-                     Date approximate_arrival_date, Date fixed_arrival_date) throws SQLException;
+    void createOrder(Integer fromDepartmentId, Integer toDepartmentId, Integer fromOperatorId,
+                     Integer toOperatorId, Integer fromCourierId, Integer toCourierId,
+                     Integer fromClientId, Integer toClientId, BigDecimal deliveryPrice,
+                     BigDecimal productPrice, Integer weight, Date sendingDate,
+                     Date approximateArrivalDate, Date fixedArrivalDate) throws SQLException;
 
-    void updateOrder(Integer id, Integer from_department_id, Integer to_department_id, Integer from_operator_id,
-                     Integer to_operator_id, Integer from_courier_id, Integer to_courier_id,
-                     Integer from_client_id, Integer to_client_id, BigDecimal delivery_price,
-                     BigDecimal product_price, Integer weight, Date sending_date,
-                     Date approximate_arrival_date, Date fixed_arrival_date) throws SQLException;
+    void updateOrder(Integer id, Integer fromDepartmentId, Integer toDepartmentId, Integer fromOperatorId,
+                     Integer toOperatorId, Integer fromCourierId, Integer toCourierId,
+                     Integer fromClientId, Integer toClientId, BigDecimal deliveryPrice,
+                     BigDecimal productPrice, Integer weight, Date sendingDate,
+                     Date approximateArrivalDate, Date fixedArrivalDate) throws SQLException;
 
     void deleteOrder(Integer id) throws SQLException;
 
@@ -58,10 +58,10 @@ public interface IController {
 
     void findCourierById(Integer id) throws SQLException;
 
-    void createCourier(Integer department_id, String name, String surname, String address,
+    void createCourier(Integer departmentId, String name, String surname, String address,
                        BigDecimal phone, Date birthday) throws SQLException;
 
-    void updateCourier(Integer id, Integer department_id, String name, String surname, String address,
+    void updateCourier(Integer id, Integer departmentId, String name, String surname, String address,
                        BigDecimal phone, Date birthday) throws SQLException;
 
     void deleteCourier(Integer id) throws SQLException;
@@ -70,10 +70,10 @@ public interface IController {
 
     void findOperatorById(Integer id) throws SQLException;
 
-    void createOperator(Integer department_id, String name, String surname, String address,
+    void createOperator(Integer departmentId, String name, String surname, String address,
                        BigDecimal phone, Date birthday) throws SQLException;
 
-    void updateOperator(Integer id, Integer department_id, String name, String surname, String address,
+    void updateOperator(Integer id, Integer departmentId, String name, String surname, String address,
                        BigDecimal phone, Date birthday) throws SQLException;
 
     void deleteOperator(Integer id) throws SQLException;
@@ -82,10 +82,10 @@ public interface IController {
 
     void findDepartmentById(Integer id) throws SQLException;
 
-    void createDepartment(String department_type_size, String city_name, Integer number, String address)
+    void createDepartment(String departmentTypeSize, String cityName, Integer number, String address)
             throws SQLException;
 
-    void updateDepartment(Integer id, String department_type_size, String city_name, Integer number, String address)
+    void updateDepartment(Integer id, String departmentTypeSize, String cityName, Integer number, String address)
             throws SQLException;
 
     void deleteDepartment(Integer id) throws SQLException;
@@ -94,9 +94,9 @@ public interface IController {
 
     void findDepartmentTypeById(String size) throws SQLException;
 
-    void createDepartmentType(String size, Integer max_weight) throws SQLException;
+    void createDepartmentType(String size, Integer maxWeight) throws SQLException;
 
-    void updateDepartmentType(String size, Integer max_weight, String newSize) throws SQLException;
+    void updateDepartmentType(String size, Integer maxWeight, String newSize) throws SQLException;
 
     void deleteDepartmentType(String size) throws SQLException;
 }

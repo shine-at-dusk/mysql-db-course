@@ -3,7 +3,12 @@ package ua.lviv.iot.model;
 import ua.lviv.iot.controller.connection.ConnectionManager;
 
 import java.math.BigDecimal;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Courier {
     private static final String FIND_ALL = "SELECT * FROM `courier`";
@@ -34,11 +39,11 @@ public class Courier {
         }
     }
 
-    public void create(Integer department_id, String name, String surname, String address,
+    public void create(Integer departmentId, String name, String surname, String address,
                        BigDecimal phone, Date birthday) throws SQLException {
         Connection connection = ConnectionManager.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(CREATE)) {
-            ps.setInt(1, department_id);
+            ps.setInt(1, departmentId);
             ps.setString(2, name);
             ps.setString(3, surname);
             ps.setString(4, address);
@@ -49,11 +54,11 @@ public class Courier {
         }
     }
 
-    public void update(Integer id, Integer department_id, String name, String surname, String address,
+    public void update(Integer id, Integer departmentId, String name, String surname, String address,
                        BigDecimal phone, Date birthday) throws SQLException {
         Connection connection = ConnectionManager.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(UPDATE)) {
-            ps.setInt(1, department_id);
+            ps.setInt(1, departmentId);
             ps.setString(2, name);
             ps.setString(3, surname);
             ps.setString(4, address);

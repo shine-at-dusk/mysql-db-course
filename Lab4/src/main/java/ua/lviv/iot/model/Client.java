@@ -3,7 +3,11 @@ package ua.lviv.iot.model;
 import ua.lviv.iot.controller.connection.ConnectionManager;
 
 import java.math.BigDecimal;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Client {
     private static final String FIND_ALL = "SELECT * FROM `client`";
@@ -37,10 +41,11 @@ public class Client {
             ps.setString(1, name);
             ps.setString(2, surname);
             ps.setBigDecimal(3, phone);
-            if (address != null)
+            if (address != null) {
                 ps.setString(4, address);
-            else
+            } else {
                 ps.setString(4, null);
+            }
 
             ps.executeUpdate();
         }
@@ -52,10 +57,11 @@ public class Client {
             ps.setString(1, name);
             ps.setString(2, surname);
             ps.setBigDecimal(3, phone);
-            if (address != null)
+            if (address != null) {
                 ps.setString(4, address);
-            else
+            } else {
                 ps.setString(4, null);
+            }
             ps.setInt(5, id);
 
             ps.executeUpdate();

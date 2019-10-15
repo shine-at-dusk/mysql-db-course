@@ -2,7 +2,11 @@ package ua.lviv.iot.model;
 
 import ua.lviv.iot.controller.connection.ConnectionManager;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Department {
     private static final String FIND_ALL = "SELECT * FROM `department`";
@@ -32,12 +36,12 @@ public class Department {
         }
     }
 
-    public void create(String department_type_size, String city_name, Integer number, String address)
+    public void create(String departmentTypeSize, String cityName, Integer number, String address)
             throws SQLException {
         Connection connection = ConnectionManager.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(CREATE)) {
-            ps.setString(1, department_type_size);
-            ps.setString(2, city_name);
+            ps.setString(1, departmentTypeSize);
+            ps.setString(2, cityName);
             ps.setInt(3, number);
             ps.setString(4, address);
 
@@ -45,12 +49,12 @@ public class Department {
         }
     }
 
-    public void update(Integer id, String department_type_size, String city_name, Integer number, String address)
+    public void update(Integer id, String departmentTypeSize, String cityName, Integer number, String address)
             throws SQLException {
         Connection connection = ConnectionManager.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(UPDATE)) {
-            ps.setString(1, department_type_size);
-            ps.setString(2, city_name);
+            ps.setString(1, departmentTypeSize);
+            ps.setString(2, cityName);
             ps.setInt(3, number);
             ps.setString(4, address);
             ps.setInt(5, id);

@@ -3,7 +3,13 @@ package ua.lviv.iot.model;
 import ua.lviv.iot.controller.connection.ConnectionManager;
 
 import java.math.BigDecimal;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 
 public class Order {
     private static final String FIND_ALL = "SELECT * FROM `order`";
@@ -38,77 +44,85 @@ public class Order {
         }
     }
 
-    public void create(Integer from_department_id, Integer to_department_id, Integer from_operator_id,
-                      Integer to_operator_id, Integer from_courier_id, Integer to_courier_id,
-                      Integer from_client_id, Integer to_client_id, BigDecimal delivery_price,
-                      BigDecimal product_price, Integer weight, Date sending_date,
-                      Date approximate_arrival_date, Date fixed_arrival_date) throws SQLException {
+    public void create(Integer fromDepartmentId, Integer toDepartmentId, Integer fromOperatorId,
+                       Integer toOperatorId, Integer fromCourierId, Integer toCourierId,
+                       Integer fromClientId, Integer toClientId, BigDecimal deliveryPrice,
+                       BigDecimal productPrice, Integer weight, Date sendingDate,
+                       Date approximateArrivalDate, Date fixedArrivalDate) throws SQLException {
         Connection connection = ConnectionManager.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(CREATE)) {
-            ps.setInt(1, from_department_id);
-            ps.setInt(2, to_department_id);
-            ps.setInt(3, from_operator_id);
-            ps.setInt(4, to_operator_id);
-            if (from_courier_id != null)
-                ps.setInt(5, from_courier_id);
-            else
+            ps.setInt(1, fromDepartmentId);
+            ps.setInt(2, toDepartmentId);
+            ps.setInt(3, fromOperatorId);
+            ps.setInt(4, toOperatorId);
+            if (fromCourierId != null) {
+                ps.setInt(5, fromCourierId);
+            } else {
                 ps.setNull(5, Types.INTEGER);
-            if (to_courier_id != null)
-                ps.setInt(6, to_courier_id);
-            else
+            }
+            if (toCourierId != null) {
+                ps.setInt(6, toCourierId);
+            } else {
                 ps.setNull(6, Types.INTEGER);
-            ps.setInt(7, from_client_id);
-            ps.setInt(8, to_client_id);
-            ps.setBigDecimal(9, delivery_price);
-            if (product_price != null)
-                ps.setBigDecimal(10, product_price);
-            else
+            }
+            ps.setInt(7, fromClientId);
+            ps.setInt(8, toClientId);
+            ps.setBigDecimal(9, deliveryPrice);
+            if (productPrice != null) {
+                ps.setBigDecimal(10, productPrice);
+            } else {
                 ps.setNull(10, Types.DECIMAL);
+            }
             ps.setInt(11, weight);
-            ps.setDate(12, sending_date);
-            ps.setDate(13, approximate_arrival_date);
-            if (fixed_arrival_date != null)
-                ps.setDate(14, fixed_arrival_date);
-            else
+            ps.setDate(12, sendingDate);
+            ps.setDate(13, approximateArrivalDate);
+            if (fixedArrivalDate != null) {
+                ps.setDate(14, fixedArrivalDate);
+            } else {
                 ps.setNull(14, Types.DATE);
+            }
 
             ps.executeUpdate();
         }
     }
 
-    public void update(Integer id, Integer from_department_id, Integer to_department_id, Integer from_operator_id,
-                       Integer to_operator_id, Integer from_courier_id, Integer to_courier_id,
-                       Integer from_client_id, Integer to_client_id, BigDecimal delivery_price,
-                       BigDecimal product_price, Integer weight, Date sending_date,
-                       Date approximate_arrival_date, Date fixed_arrival_date) throws SQLException {
+    public void update(Integer id, Integer fromDepartmentId, Integer toDepartmentId, Integer fromOperatorId,
+                       Integer toOperatorId, Integer fromCourierId, Integer toCourierId,
+                       Integer fromClientId, Integer toClientId, BigDecimal deliveryPrice,
+                       BigDecimal productPrice, Integer weight, Date sendingDate,
+                       Date approximateArrivalDate, Date fixedArrivalDate) throws SQLException {
         Connection connection = ConnectionManager.getConnection();
         try (PreparedStatement ps = connection.prepareStatement(UPDATE)) {
-            ps.setInt(1, from_department_id);
-            ps.setInt(2, to_department_id);
-            ps.setInt(3, from_operator_id);
-            ps.setInt(4, to_operator_id);
-            if (from_courier_id != null)
-                ps.setInt(5, from_courier_id);
-            else
+            ps.setInt(1, fromDepartmentId);
+            ps.setInt(2, toDepartmentId);
+            ps.setInt(3, fromOperatorId);
+            ps.setInt(4, toOperatorId);
+            if (fromCourierId != null) {
+                ps.setInt(5, fromCourierId);
+            } else {
                 ps.setNull(5, Types.INTEGER);
-            if (to_courier_id != null)
-                ps.setInt(6, to_courier_id);
-            else
+            }
+            if (toCourierId != null) {
+                ps.setInt(6, toCourierId);
+            } else {
                 ps.setNull(6, Types.INTEGER);
-            ps.setInt(7, from_client_id);
-            ps.setInt(8, to_client_id);
-            ps.setBigDecimal(9, delivery_price);
-            if (product_price != null)
-                ps.setBigDecimal(10, product_price);
-            else
+            }
+            ps.setInt(7, fromClientId);
+            ps.setInt(8, toClientId);
+            ps.setBigDecimal(9, deliveryPrice);
+            if (productPrice != null) {
+                ps.setBigDecimal(10, productPrice);
+            } else {
                 ps.setNull(10, Types.DECIMAL);
+            }
             ps.setInt(11, weight);
-            ps.setDate(12, sending_date);
-            ps.setDate(13, approximate_arrival_date);
-            if (fixed_arrival_date != null)
-                ps.setDate(14, fixed_arrival_date);
-            else
+            ps.setDate(12, sendingDate);
+            ps.setDate(13, approximateArrivalDate);
+            if (fixedArrivalDate != null) {
+                ps.setDate(14, fixedArrivalDate);
+            } else {
                 ps.setNull(14, Types.DATE);
+            }
             ps.setInt(15, id);
 
             ps.executeUpdate();

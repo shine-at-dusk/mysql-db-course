@@ -1,6 +1,13 @@
 package ua.lviv.iot.controller;
 
-import ua.lviv.iot.model.*;
+import ua.lviv.iot.model.Account;
+import ua.lviv.iot.model.City;
+import ua.lviv.iot.model.Client;
+import ua.lviv.iot.model.Courier;
+import ua.lviv.iot.model.Department;
+import ua.lviv.iot.model.DepartmentType;
+import ua.lviv.iot.model.Operator;
+import ua.lviv.iot.model.Order;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -38,26 +45,26 @@ public class Controller implements IController {
     }
 
     @Override
-    public void createOrder(Integer from_department_id, Integer to_department_id, Integer from_operator_id,
-                            Integer to_operator_id, Integer from_courier_id, Integer to_courier_id,
-                            Integer from_client_id, Integer to_client_id, BigDecimal delivery_price,
-                            BigDecimal product_price, Integer weight, Date sending_date,
-                            Date approximate_arrival_date, Date fixed_arrival_date) throws SQLException {
-        order.create(from_department_id, to_department_id, from_operator_id, to_operator_id, from_courier_id,
-                to_courier_id, from_client_id, to_client_id, delivery_price, product_price, weight, sending_date,
-                approximate_arrival_date, fixed_arrival_date);
+    public void createOrder(Integer fromDepartmentId, Integer toDepartmentId, Integer fromOperatorId,
+                            Integer toOperatorId, Integer fromCourierId, Integer toCourierId,
+                            Integer fromClientId, Integer toClientId, BigDecimal deliveryPrice,
+                            BigDecimal productPrice, Integer weight, Date sendingDate,
+                            Date approximateArrivalDate, Date fixedArrivalDate) throws SQLException {
+        order.create(fromDepartmentId, toDepartmentId, fromOperatorId, toOperatorId, fromCourierId,
+                toCourierId, fromClientId, toClientId, deliveryPrice, productPrice, weight, sendingDate,
+                approximateArrivalDate, fixedArrivalDate);
     }
 
     @Override
-    public void updateOrder(Integer id, Integer from_department_id, Integer to_department_id,
-                            Integer from_operator_id, Integer to_operator_id, Integer from_courier_id,
-                            Integer to_courier_id, Integer from_client_id, Integer to_client_id,
-                            BigDecimal delivery_price, BigDecimal product_price, Integer weight,
-                            Date sending_date, Date approximate_arrival_date, Date fixed_arrival_date)
+    public void updateOrder(Integer id, Integer fromDepartmentId, Integer toDepartmentId, Integer fromOperatorId,
+                            Integer toOperatorId, Integer fromCourierId, Integer toCourierId,
+                            Integer fromClientId, Integer toClientId, BigDecimal deliveryPrice,
+                            BigDecimal productPrice, Integer weight, Date sendingDate,
+                            Date approximateArrivalDate, Date fixedArrivalDate)
             throws SQLException {
-        order.update(id, from_department_id, to_department_id, from_operator_id, to_operator_id, from_courier_id,
-                to_courier_id, from_client_id, to_client_id, delivery_price, product_price, weight, sending_date,
-                approximate_arrival_date, fixed_arrival_date);
+        order.update(id, fromDepartmentId, toDepartmentId, fromOperatorId, toOperatorId, fromCourierId,
+                toCourierId, fromClientId, toClientId, deliveryPrice, productPrice, weight, sendingDate,
+                approximateArrivalDate, fixedArrivalDate);
     }
 
     @Override
@@ -152,15 +159,15 @@ public class Controller implements IController {
     }
 
     @Override
-    public void createCourier(Integer department_id, String name, String surname, String address,
+    public void createCourier(Integer departmentId, String name, String surname, String address,
                               BigDecimal phone, Date birthday) throws SQLException {
-        courier.create(department_id, name, surname, address, phone, birthday);
+        courier.create(departmentId, name, surname, address, phone, birthday);
     }
 
     @Override
-    public void updateCourier(Integer id, Integer department_id, String name, String surname,
+    public void updateCourier(Integer id, Integer departmentId, String name, String surname,
                               String address, BigDecimal phone, Date birthday) throws SQLException {
-        courier.update(id, department_id, name, surname, address, phone, birthday);
+        courier.update(id, departmentId, name, surname, address, phone, birthday);
     }
 
     @Override
@@ -178,15 +185,15 @@ public class Controller implements IController {
     }
 
     @Override
-    public void createOperator(Integer department_id, String name, String surname, String address,
+    public void createOperator(Integer departmentId, String name, String surname, String address,
                               BigDecimal phone, Date birthday) throws SQLException {
-        operator.create(department_id, name, surname, address, phone, birthday);
+        operator.create(departmentId, name, surname, address, phone, birthday);
     }
 
     @Override
-    public void updateOperator(Integer id, Integer department_id, String name, String surname,
+    public void updateOperator(Integer id, Integer departmentId, String name, String surname,
                               String address, BigDecimal phone, Date birthday) throws SQLException {
-        operator.update(id, department_id, name, surname, address, phone, birthday);
+        operator.update(id, departmentId, name, surname, address, phone, birthday);
     }
 
     @Override
@@ -205,15 +212,15 @@ public class Controller implements IController {
     }
 
     @Override
-    public void createDepartment(String department_type_size, String city_name, Integer number, String address)
+    public void createDepartment(String departmentTypeSize, String cityName, Integer number, String address)
             throws SQLException {
-        department.create(department_type_size, city_name, number, address);
+        department.create(departmentTypeSize, cityName, number, address);
     }
 
     @Override
-    public void updateDepartment(Integer id, String department_type_size, String city_name, Integer number,
+    public void updateDepartment(Integer id, String departmentTypeSize, String cityName, Integer number,
                                  String address) throws SQLException {
-        department.update(id, department_type_size, city_name, number, address);
+        department.update(id, departmentTypeSize, cityName, number, address);
     }
 
     @Override
@@ -232,13 +239,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void createDepartmentType(String size, Integer max_weight) throws SQLException {
-        departmentType.create(size, max_weight);
+    public void createDepartmentType(String size, Integer maxWeight) throws SQLException {
+        departmentType.create(size, maxWeight);
     }
 
     @Override
-    public void updateDepartmentType(String size, Integer max_weight, String newSize) throws SQLException {
-        departmentType.update(size, max_weight, newSize);
+    public void updateDepartmentType(String size, Integer maxWeight, String newSize) throws SQLException {
+        departmentType.update(size, maxWeight, newSize);
     }
 
     @Override
