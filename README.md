@@ -1,1 +1,1 @@
-# mysql-selects
+# mysql-db-course
