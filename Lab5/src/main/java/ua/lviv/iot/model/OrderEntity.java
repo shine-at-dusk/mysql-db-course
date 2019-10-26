@@ -226,4 +226,9 @@ public class OrderEntity {
         result = 31 * result + (fixedArrivalDate != null ? fixedArrivalDate.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -47,4 +47,9 @@ public class DepartmentTypeEntity {
         result = 31 * result + (maxWeight != null ? maxWeight.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

@@ -73,4 +73,9 @@ public class AccountEntity {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
