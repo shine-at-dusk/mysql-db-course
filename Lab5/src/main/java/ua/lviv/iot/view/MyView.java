@@ -1,10 +1,10 @@
 package ua.lviv.iot.view;
 
 import ua.lviv.iot.controller.Controller;
+import ua.lviv.iot.model.AccountEntity;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MyView {
@@ -16,7 +16,7 @@ public class MyView {
         controller = new Controller();
     }
 
-    public void show() throws SQLException {
+    public void show() throws Exception {
         String menuPoint;
         do {
             System.out.println("Press ENTER key to continue...");
@@ -68,13 +68,15 @@ public class MyView {
                 "\tQ - Exit\n");
     }
 
-    private void workWithAccount() throws SQLException {
+    private void workWithAccount() throws Exception {
         System.out.println("\tTable 'account'");
         System.out.println(submenu);
         System.out.print("Select point: ");
         switch (new Scanner(System.in).nextLine().toUpperCase()) {
             case "1":
-                controller.findAllAccounts();
+                for (AccountEntity account : controller.findAllAccounts()) {
+                    System.out.println(account);
+                }
                 break;
             case "2":
                 System.out.print("Enter id: ");
@@ -113,7 +115,7 @@ public class MyView {
         }
     }
 
-    private void workWithCity() throws SQLException {
+    private void workWithCity() throws Exception {
         System.out.println("\tTable 'city'");
         System.out.println(submenu);
         System.out.print("Select point: ");
@@ -147,7 +149,7 @@ public class MyView {
         }
     }
 
-    private void workWithClient() throws SQLException {
+    private void workWithClient() throws Exception {
         System.out.println("\tTable 'client'");
         System.out.println(submenu);
         System.out.print("Select point: ");
@@ -194,7 +196,7 @@ public class MyView {
         }
     }
 
-    private void workWithCourier() throws SQLException {
+    private void workWithCourier() throws Exception {
         System.out.println("\tTable 'courier'");
         System.out.println(submenu);
         System.out.print("Select point: ");
@@ -249,7 +251,7 @@ public class MyView {
         }
     }
 
-    private void workWithDepartment() throws SQLException {
+    private void workWithDepartment() throws Exception {
         System.out.println("\tTable 'department'");
         System.out.println(submenu);
         System.out.print("Select point: ");
@@ -296,7 +298,7 @@ public class MyView {
         }
     }
 
-    private void workWithDepartmentType() throws SQLException {
+    private void workWithDepartmentType() throws Exception {
         System.out.println("\tTable 'department_type'");
         System.out.println(submenu);
         System.out.print("Select point: ");
@@ -335,7 +337,7 @@ public class MyView {
         }
     }
 
-    private void workWithOperator() throws SQLException {
+    private void workWithOperator() throws Exception {
         System.out.println("\tTable 'operator'");
         System.out.println(submenu);
         System.out.print("Select point: ");
@@ -390,7 +392,7 @@ public class MyView {
         }
     }
 
-    private void workWithOrder() throws SQLException {
+    private void workWithOrder() throws Exception {
         System.out.println("\tTable 'order'");
         System.out.println(submenu);
         System.out.print("Select point: ");

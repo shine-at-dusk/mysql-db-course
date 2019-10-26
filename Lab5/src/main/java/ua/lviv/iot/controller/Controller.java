@@ -3,6 +3,8 @@ package ua.lviv.iot.controller;
 import ua.lviv.iot.model.*;
 import ua.lviv.iot.service.*;
 
+import java.util.List;
+
 public class Controller implements IController {
     private static OrderService orderService;
     private static ClientService clientService;
@@ -25,13 +27,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllOrders() throws Exception {
-        orderService.findAll();
+    public List<OrderEntity> findAllOrders() throws Exception {
+        return orderService.findAll();
     }
 
     @Override
-    public void findOrderById(Integer id) throws Exception {
-        orderService.findById(id);
+    public OrderEntity findOrderById(Integer id) throws Exception {
+        return orderService.findById(id);
     }
 
     @Override
@@ -50,13 +52,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllClients() throws Exception {
-        clientService.findAll();
+    public List<ClientEntity> findAllClients() throws Exception {
+        return clientService.findAll();
     }
 
     @Override
-    public void findClientById(Integer id) throws Exception {
-        clientService.findById(id);
+    public ClientEntity findClientById(Integer id) throws Exception {
+        return clientService.findById(id);
     }
 
     @Override
@@ -75,13 +77,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllAccounts() throws Exception {
-        accountService.findAll();
+    public List<AccountEntity> findAllAccounts() throws Exception {
+        return accountService.findAll();
     }
 
     @Override
-    public void findAccountById(Integer id) throws Exception {
-        accountService.findById(id);
+    public AccountEntity findAccountById(Integer id) throws Exception {
+        return accountService.findById(id);
     }
 
     @Override
@@ -100,13 +102,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllCities() throws Exception {
-        cityService.findAll();
+    public List<CityEntity> findAllCities() throws Exception {
+        return cityService.findAll();
     }
 
     @Override
-    public void findCityById(String id) throws Exception {
-        cityService.findById(id);
+    public CityEntity findCityById(String id) throws Exception {
+        return cityService.findById(id);
     }
 
     @Override
@@ -125,13 +127,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllCouriers() throws Exception {
-        courierService.findAll();
+    public List<CourierEntity> findAllCouriers() throws Exception {
+        return courierService.findAll();
     }
 
     @Override
-    public void findCourierById(Integer id) throws Exception {
-        courierService.findById(id);
+    public CourierEntity findCourierById(Integer id) throws Exception {
+        return courierService.findById(id);
     }
 
     @Override
@@ -150,13 +152,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllOperators() throws Exception {
-        operatorService.findAll();
+    public List<OperatorEntity> findAllOperators() throws Exception {
+        return operatorService.findAll();
     }
 
     @Override
-    public void findOperatorById(Integer id) throws Exception {
-        operatorService.findById(id);
+    public OperatorEntity findOperatorById(Integer id) throws Exception {
+        return operatorService.findById(id);
     }
 
     @Override
@@ -175,13 +177,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllDepartments() throws Exception {
-        departmentService.findAll();
+    public List<DepartmentEntity> findAllDepartments() throws Exception {
+        return departmentService.findAll();
     }
 
     @Override
-    public void findDepartmentById(Integer id) throws Exception {
-        departmentService.findById(id);
+    public DepartmentEntity findDepartmentById(Integer id) throws Exception {
+        return departmentService.findById(id);
     }
 
     @Override
@@ -200,13 +202,13 @@ public class Controller implements IController {
     }
 
     @Override
-    public void findAllDepartmentTypes() throws Exception {
-        departmentTypeService.findAll();
+    public List<DepartmentTypeEntity> findAllDepartmentTypes() throws Exception {
+        return departmentTypeService.findAll();
     }
 
     @Override
-    public void findDepartmentTypeById(String id) throws Exception {
-        departmentTypeService.findById(id);
+    public DepartmentTypeEntity findDepartmentTypeById(String id) throws Exception {
+        return departmentTypeService.findById(id);
     }
 
     @Override

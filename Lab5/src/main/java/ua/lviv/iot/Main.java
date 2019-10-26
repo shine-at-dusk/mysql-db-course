@@ -1,22 +1,19 @@
 package ua.lviv.iot;
 
-import org.hibernate.HibernateException;
-import org.hibernate.query.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import ua.lviv.iot.model.ClientEntity;
-import ua.lviv.iot.model.OrderEntity;
-
-import javax.persistence.metamodel.EntityType;
-import javax.persistence.metamodel.Metamodel;
+import ua.lviv.iot.view.MyView;
 
 public class Main {
 
 
     public static void main(final String[] args) throws Exception {
-//        final Session session = getSession();
         try {
+            new MyView().show();
+        } catch (Exception e) {
+            System.out.println("Exception: " + e);
+        }
+    }
+//        final Session session = getSession();
+//        try {
 
 //            Query query = session.createQuery("FROM " + "ClientEntity");
 //            System.out.format("\nTable Client --------------------\n");
@@ -51,8 +48,8 @@ public class Main {
 //                    System.out.println("  " + o);
 //                }
 //            }
-        } finally {
+//        } finally {
 //            session.close();
-        }
-    }
+//        }
+//    }
 }

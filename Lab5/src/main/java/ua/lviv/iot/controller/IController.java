@@ -2,14 +2,13 @@ package ua.lviv.iot.controller;
 
 import ua.lviv.iot.model.*;
 
-import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.List;
 
 public interface IController {
 
-    void findAllOrders() throws Exception;
+    List<OrderEntity> findAllOrders() throws Exception;
 
-    void findOrderById(Integer id) throws Exception;
+    OrderEntity findOrderById(Integer id) throws Exception;
 
     void createOrder(OrderEntity entity) throws Exception;
 
@@ -17,9 +16,9 @@ public interface IController {
 
     void deleteOrder(Integer id) throws Exception;
 
-    void findAllClients() throws Exception;
+    List<ClientEntity> findAllClients() throws Exception;
 
-    void findClientById(Integer id) throws Exception;
+    ClientEntity findClientById(Integer id) throws Exception;
 
     void createClient(ClientEntity entity) throws Exception;
 
@@ -27,9 +26,9 @@ public interface IController {
 
     void deleteClient(Integer id) throws Exception;
 
-    void findAllAccounts() throws Exception;
+    List<AccountEntity> findAllAccounts() throws Exception;
 
-    void findAccountById(Integer id) throws Exception;
+    AccountEntity findAccountById(Integer id) throws Exception;
 
     void createAccount(AccountEntity entity) throws Exception;
 
@@ -37,9 +36,9 @@ public interface IController {
 
     void deleteAccount(Integer id) throws Exception;
 
-    void findAllCities() throws Exception;
+    List<CityEntity> findAllCities() throws Exception;
 
-    void findCityById(String id) throws Exception;
+    CityEntity findCityById(String id) throws Exception;
 
     void createCity(CityEntity entity) throws Exception;
 
@@ -47,9 +46,9 @@ public interface IController {
 
     void deleteCity(String id) throws Exception;
 
-    void findAllCouriers() throws Exception;
+    List<CourierEntity> findAllCouriers() throws Exception;
 
-    void findCourierById(Integer id) throws Exception;
+    CourierEntity findCourierById(Integer id) throws Exception;
 
     void createCourier(CourierEntity entity) throws Exception;
 
@@ -57,9 +56,9 @@ public interface IController {
 
     void deleteCourier(Integer id) throws Exception;
 
-    void findAllOperators() throws Exception;
+    List<OperatorEntity> findAllOperators() throws Exception;
 
-    void findOperatorById(Integer id) throws Exception;
+    OperatorEntity findOperatorById(Integer id) throws Exception;
 
     void createOperator(OperatorEntity entity) throws Exception;
 
@@ -67,9 +66,9 @@ public interface IController {
 
     void deleteOperator(Integer id) throws Exception;
 
-    void findAllDepartments() throws Exception;
+    List<DepartmentEntity> findAllDepartments() throws Exception;
 
-    void findDepartmentById(Integer id) throws Exception;
+    DepartmentEntity findDepartmentById(Integer id) throws Exception;
 
     void createDepartment(DepartmentEntity entity)
             throws Exception;
@@ -79,9 +78,9 @@ public interface IController {
 
     void deleteDepartment(Integer id) throws Exception;
 
-    void findAllDepartmentTypes() throws Exception;
+    List<DepartmentTypeEntity> findAllDepartmentTypes() throws Exception;
 
-    void findDepartmentTypeById(String id) throws Exception;
+    DepartmentTypeEntity findDepartmentTypeById(String id) throws Exception;
 
     void createDepartmentType(DepartmentTypeEntity entity) throws Exception;
 
