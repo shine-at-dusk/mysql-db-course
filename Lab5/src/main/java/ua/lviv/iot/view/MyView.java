@@ -1,7 +1,14 @@
 package ua.lviv.iot.view;
 
 import ua.lviv.iot.controller.Controller;
-import ua.lviv.iot.model.*;
+import ua.lviv.iot.model.AccountEntity;
+import ua.lviv.iot.model.CityEntity;
+import ua.lviv.iot.model.ClientEntity;
+import ua.lviv.iot.model.CourierEntity;
+import ua.lviv.iot.model.DepartmentEntity;
+import ua.lviv.iot.model.DepartmentTypeEntity;
+import ua.lviv.iot.model.OperatorEntity;
+import ua.lviv.iot.model.OrderEntity;
 
 import java.sql.Date;
 import java.util.Scanner;

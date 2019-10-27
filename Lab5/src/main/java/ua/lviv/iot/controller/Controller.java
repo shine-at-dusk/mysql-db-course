@@ -1,7 +1,21 @@
 package ua.lviv.iot.controller;
 
-import ua.lviv.iot.model.*;
-import ua.lviv.iot.service.*;
+import ua.lviv.iot.model.AccountEntity;
+import ua.lviv.iot.model.CityEntity;
+import ua.lviv.iot.model.ClientEntity;
+import ua.lviv.iot.model.CourierEntity;
+import ua.lviv.iot.model.DepartmentEntity;
+import ua.lviv.iot.model.DepartmentTypeEntity;
+import ua.lviv.iot.model.OperatorEntity;
+import ua.lviv.iot.model.OrderEntity;
+import ua.lviv.iot.service.AccountService;
+import ua.lviv.iot.service.CityService;
+import ua.lviv.iot.service.ClientService;
+import ua.lviv.iot.service.CourierService;
+import ua.lviv.iot.service.DepartmentService;
+import ua.lviv.iot.service.DepartmentTypeService;
+import ua.lviv.iot.service.OperatorService;
+import ua.lviv.iot.service.OrderService;
 
 import java.util.List;
 
