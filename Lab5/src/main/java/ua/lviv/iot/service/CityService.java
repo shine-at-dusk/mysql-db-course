@@ -18,8 +18,11 @@ public class CityService {
         new CityDAO().create(entity);
     }
 
-    public void update(CityEntity entity) throws Exception {
-        new CityDAO().update(entity);
+    public void update(String city, String newCity) throws Exception {
+        CityEntity entity = new CityEntity();
+        entity.setName(newCity);
+        new CityDAO().delete(city);
+        new CityDAO().create(entity);
     }
 
     public void delete(String id) throws Exception {

@@ -42,7 +42,7 @@ public interface IController {
 
     void createCity(CityEntity entity) throws Exception;
 
-    void updateCity(CityEntity entity) throws Exception;
+    void updateCity(String city, String newCity) throws Exception;
 
     void deleteCity(String id) throws Exception;
 

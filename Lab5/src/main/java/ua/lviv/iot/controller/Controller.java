@@ -117,8 +117,8 @@ public class Controller implements IController {
     }
 
     @Override
-    public void updateCity(CityEntity entity) throws Exception {
-        cityService.update(entity);
+    public void updateCity(String city, String newCity) throws Exception {
+        cityService.update(city, newCity);
     }
 
     @Override
