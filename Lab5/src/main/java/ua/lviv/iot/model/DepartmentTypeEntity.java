@@ -1,6 +1,10 @@
 package ua.lviv.iot.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "`department_type`", schema = "`shutka`")
@@ -50,6 +54,9 @@ public class DepartmentTypeEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "DepartmentTypeEntity{" +
+                "size='" + size + '\'' +
+                ", maxWeight=" + maxWeight +
+                '}';
     }
 }

@@ -1,6 +1,12 @@
 package ua.lviv.iot.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "`department`", schema = "`shutka`")
@@ -91,6 +97,12 @@ public class DepartmentEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "DepartmentEntity{" +
+                "id=" + id +
+                ", departmentTypeSize='" + departmentTypeSize + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", number=" + number +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

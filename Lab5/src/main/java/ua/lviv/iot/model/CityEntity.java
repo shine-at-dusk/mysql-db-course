@@ -39,6 +39,8 @@ public class CityEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "CityEntity{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

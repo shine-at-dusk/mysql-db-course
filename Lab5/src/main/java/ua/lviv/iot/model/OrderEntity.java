@@ -1,6 +1,12 @@
 package ua.lviv.iot.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.sql.Date;
 
@@ -229,6 +235,22 @@ public class OrderEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "OrderEntity{" +
+                "id=" + id +
+                ", fromDepartmentId=" + fromDepartmentId +
+                ", toDepartmentId=" + toDepartmentId +
+                ", fromOperatorId=" + fromOperatorId +
+                ", toOperatorId=" + toOperatorId +
+                ", fromCourierId=" + fromCourierId +
+                ", toCourierId=" + toCourierId +
+                ", fromClientId=" + fromClientId +
+                ", toClientId=" + toClientId +
+                ", deliveryPrice=" + deliveryPrice +
+                ", productPrice=" + productPrice +
+                ", weight=" + weight +
+                ", sendingDate=" + sendingDate +
+                ", approximateArrivalDate=" + approximateArrivalDate +
+                ", fixedArrivalDate=" + fixedArrivalDate +
+                '}';
     }
 }

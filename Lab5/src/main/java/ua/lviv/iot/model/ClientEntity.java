@@ -1,6 +1,12 @@
 package ua.lviv.iot.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
@@ -91,6 +97,12 @@ public class ClientEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "ClientEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone=" + phone +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

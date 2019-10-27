@@ -1,6 +1,10 @@
 package ua.lviv.iot.model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "`account`", schema = "`shutka`")
@@ -76,6 +80,11 @@ public class AccountEntity {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "AccountEntity{" +
+                "clientId=" + clientId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
