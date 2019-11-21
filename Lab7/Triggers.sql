@@ -1,5 +1,28 @@
 USE DB_Lab7;
 
+DROP TRIGGER IF EXISTS BeforeInsertCityCheckFK;
+DROP TRIGGER IF EXISTS BeforeInsertGraduatedSecondarySchoolCheckFK;
+DROP TRIGGER IF EXISTS BeforeInsertStudentCheckFK;
+DROP TRIGGER IF EXISTS BeforeInsertStudentHasDebtCheckFK;
+DROP TRIGGER IF EXISTS BeforeDeleteStudentCheckFK;
+DROP TRIGGER IF EXISTS BeforeDeleteDebtCheckFK;
+DROP TRIGGER IF EXISTS BeforeDeleteGroupCheckFK;
+DROP TRIGGER IF EXISTS BeforeDeleteGraduatedSecondarySchoolCheckFK;
+DROP TRIGGER IF EXISTS BeforeDeleteCityCheckFK;
+DROP TRIGGER IF EXISTS BeforeDeleteRegionCheckFK;
+DROP TRIGGER IF EXISTS BeforeUpdateStudentCheckFK;
+DROP TRIGGER IF EXISTS BeforeUpdateDebtCheckFK;
+DROP TRIGGER IF EXISTS BeforeUpdateGroupCheckFK;
+DROP TRIGGER IF EXISTS BeforeUpdateGraduatedSecondarySchoolCheckFK;
+DROP TRIGGER IF EXISTS BeforeUpdateCityCheckFK;
+DROP TRIGGER IF EXISTS BeforeUpdateRegionCheckFK;
+DROP TRIGGER IF EXISTS BeforeInsertRegionCheckCode;
+DROP TRIGGER IF EXISTS BeforeUpdateRegionCheckCode;
+DROP TRIGGER IF EXISTS BeforeInsertStudentCheckStudentCardNumber;
+DROP TRIGGER IF EXISTS BeforeUpdateStudentCheckStudentCardNumber;
+DROP TRIGGER IF EXISTS AfterInsertCityCheckCardinality;
+DROP TRIGGER IF EXISTS AfterDeleteCityCheckCardinality;
+
 DELIMITER //
 CREATE TRIGGER BeforeInsertCityCheckFK
 BEFORE INSERT

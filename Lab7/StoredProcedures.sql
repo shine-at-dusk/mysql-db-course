@@ -1,5 +1,9 @@
 USE DB_Lab7;
 
+DROP PROCEDURE IF EXISTS insertIntoRegion;
+DROP PROCEDURE IF EXISTS selectFromStudentHasDebt;
+DROP PROCEDURE IF EXISTS copyRegion;
+
 DELIMITER //
 CREATE PROCEDURE insertIntoRegion(IN name varchar(45), IN code varchar(45))
 BEGIN
@@ -28,8 +32,7 @@ BEGIN
 		) AS new_student_has_debt
 		WHERE full_name = student_full_name;
     END IF;
-END
-//
+END //
 DELIMITER ;
 
 DELIMITER //

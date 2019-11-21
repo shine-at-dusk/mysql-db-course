@@ -1,5 +1,8 @@
 USE DB_Lab7;
 
+DROP FUNCTION IF EXISTS findMinEntranceYearFromGroup;
+DROP FUNCTION IF EXISTS findGroupNameAndEntranceYearByGroupID;
+
 DELIMITER //
 CREATE FUNCTION findMinEntranceYearFromGroup()
 RETURNS INT
