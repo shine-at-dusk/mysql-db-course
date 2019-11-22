@@ -30,3 +30,7 @@ CRUD for DB from Lab1,3 (using Spring Boot)
 UI to use CRUD operations: http://localhost:8080/swagger-ui.html
 
 P.S. Port can be set up in Lab6/src/main/resources/application.yml
+
+## Lab 7
+#### Description: 
+Create triggers, user functions and stored procedures
