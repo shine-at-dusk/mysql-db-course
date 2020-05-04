@@ -7,17 +7,7 @@ CREATE SCHEMA IF NOT EXISTS `shutka` DEFAULT CHARACTER SET utf8;
 USE `shutka`;
 
 
-DROP TABLE IF EXISTS `client`;
-DROP TABLE IF EXISTS `account`;
-DROP TABLE IF EXISTS `city` ;
-DROP TABLE IF EXISTS `department_type` ;
-DROP TABLE IF EXISTS `department` ;
-DROP TABLE IF EXISTS `courier` ;
-DROP TABLE IF EXISTS `operator` ;
-DROP TABLE IF EXISTS `order` ;
-
-
-CREATE TABLE `client` (
+CREATE TABLE IF NOT EXISTS `client` (
     id INT(11) NOT NULL AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
     surname VARCHAR(45) NOT NULL,
@@ -27,7 +17,7 @@ CREATE TABLE `client` (
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `account` (
+CREATE TABLE IF NOT EXISTS `account` (
     client_id INT(11) NOT NULL,
     username VARCHAR(45) NOT NULL,
     password VARCHAR(45) NOT NULL,
@@ -36,20 +26,20 @@ CREATE TABLE `account` (
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `city` (
+CREATE TABLE IF NOT EXISTS `city` (
     name VARCHAR(45) NOT NULL,
     PRIMARY KEY (name)
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `department_type` (
+CREATE TABLE IF NOT EXISTS `department_type` (
     size VARCHAR(45) NOT NULL,
     max_weight INT(11) NOT NULL,
     PRIMARY KEY (size)
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `department` (
+CREATE TABLE IF NOT EXISTS `department` (
     id INT(11) NOT NULL AUTO_INCREMENT,
     department_type_size VARCHAR(45) NOT NULL,
     city_name VARCHAR(45) NOT NULL,
@@ -59,7 +49,7 @@ CREATE TABLE `department` (
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `courier` (
+CREATE TABLE IF NOT EXISTS `courier` (
     id INT(11) NOT NULL AUTO_INCREMENT,
     department_id INT(11) NOT NULL,
     name VARCHAR(45) NOT NULL,
@@ -71,7 +61,7 @@ CREATE TABLE `courier` (
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `operator` (
+CREATE TABLE IF NOT EXISTS `operator` (
     id INT(11) NOT NULL AUTO_INCREMENT,
     department_id INT(11) NOT NULL,
     name VARCHAR(45) NOT NULL,
@@ -83,7 +73,7 @@ CREATE TABLE `operator` (
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-CREATE TABLE `order` (
+CREATE TABLE IF NOT EXISTS `order` (
     id INT(11) NOT NULL AUTO_INCREMENT,
     from_department_id INT(11) NOT NULL,
     to_department_id INT(11) NOT NULL,
@@ -103,7 +93,7 @@ CREATE TABLE `order` (
 )  DEFAULT CHARACTER SET=UTF8;
 
 
-ALTER TABLE `account`
+ALTER TABLE IF NOT EXISTS `account`
 	ADD UNIQUE INDEX username_UNIQUE (username ASC),
     ADD UNIQUE INDEX password_UNIQUE (password ASC),
     ADD UNIQUE INDEX email_UNIQUE (email ASC),
@@ -114,7 +104,7 @@ ALTER TABLE `account`
         ON UPDATE NO ACTION;
 
 
-ALTER TABLE `department`
+ALTER TABLE IF NOT EXISTS `department`
 	ADD INDEX fk_department_department_type1_idx (department_type_size ASC),
     ADD INDEX fk_department_city1_idx (city_name ASC),
     ADD CONSTRAINT fk_department_city1 
@@ -129,7 +119,7 @@ ALTER TABLE `department`
         ON UPDATE NO ACTION;
 
 
-ALTER TABLE `courier`
+ALTER TABLE IF NOT EXISTS `courier`
 	ADD INDEX fk_courier_department1_idx (department_id ASC),
     ADD CONSTRAINT fk_courier_department1 
 		FOREIGN KEY (department_id)
@@ -138,7 +128,7 @@ ALTER TABLE `courier`
         ON UPDATE NO ACTION;
 
 
-ALTER TABLE `operator`
+ALTER TABLE IF NOT EXISTS `operator`
 	ADD INDEX fk_operator_department1_idx (department_id ASC),
     ADD CONSTRAINT fk_operator_department1 
 		FOREIGN KEY (department_id)
@@ -147,7 +137,7 @@ ALTER TABLE `operator`
         ON UPDATE NO ACTION;
 
 
-ALTER TABLE `order`
+ALTER TABLE IF NOT EXISTS `order`
 	ADD INDEX fk_order_department1_idx (from_department_id ASC),
     ADD INDEX fk_order_department2_idx (to_department_id ASC),
     ADD INDEX fk_order_operator1_idx (from_operator_id ASC),
